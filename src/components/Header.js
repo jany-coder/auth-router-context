@@ -22,10 +22,14 @@ const Header = () => {
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1 items-center">
                     <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/orders'>Orders</Link></li>
                     <li><Link to='/login'>Login</Link></li>
                     <li><Link to='/register'>Register</Link></li>
                     <li>{user?.email && <span>Welcome, {user.email}</span>}</li>
-                    <button onClick={handleSignOut} className='btn btn-sm'>Sign out</button>
+                    {
+                        user?.email ? <button onClick={handleSignOut} className='btn btn-sm'>Log out</button> : 
+                        <Link to='/login'><button className='btn btn-sm'>Log In</button></Link>
+                    }
                 </ul>
             </div>
         </div>
